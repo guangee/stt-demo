@@ -31,7 +31,7 @@ def create_datasets():
         files = os.listdir(wavs_path)  # 某个目录下文件的列表
         for j in files:
             try:
-                waveData = get_wav_mfcc(wavs_path + "\\" + j)
+                waveData = get_wav_mfcc(wavs_path + "/" + j)
                 if testNum < 100:
                     testwavs.append(waveData)
                     testlabels.append(labsIndName.index(i))
