@@ -26,7 +26,7 @@ def create_datasets():
     for i in dirs:
         print("开始加载:", i)
         labsIndName.append(i)  # 当前分类进入到标签的名字集
-        wavs_path = path + "\\" + i
+        wavs_path = path + "/" + i
         testNum = 0  # 当前分类进入了测试集的有几个 ，这里暂定每个分类进100个到测试集
         files = os.listdir(wavs_path)  # 某个目录下文件的列表
         for j in files:
