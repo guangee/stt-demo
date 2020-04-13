@@ -52,8 +52,9 @@ def video():
     ind = 0  # 结果中最大的一个数
     for i in range(len(result)):
         if result[i] > result[ind]:
-            ind = 1
+            ind = i
     print("识别的语音结果是：", name[ind])
+    t['result']=name[ind]
     return jsonify(t)
 
 
