@@ -36,7 +36,7 @@ def get_wav_mfcc(wav_path):
     return data
 
 
-@app.route('/')
+@app.route('/', methods=['POST'])
 def video():
     t = {}
     file = request.files.get('file')
