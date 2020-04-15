@@ -39,11 +39,13 @@ def get_wav_mfcc(wav_path):
 @app.route('/')
 def video():
     t = {}
+    file = request.files.get('file')
+    file.save(os.path.join('static', 'demo.wav'))
     t['text'] = 'hello'
     # 构建模型
     model = load_model('/asr_all_model_weights.h5')  # 加载训练模型
     wavs = []
-    wavs.append(get_wav_mfcc("/2.wav"))
+    wavs.append(get_wav_mfcc(os.path.join('static', 'demo.wav')))
     X = np.array(wavs)
     print(X.shape)
     result = model.predict(X[0:1])[0]  # 识别出第一张图的结果，多张图的时候，把后面的[0] 去掉，返回的就是多张图结果
