@@ -21,7 +21,8 @@ def create_datasets():
     testwavs = []  # 测试wav文件集
     testlabels = []  # 测试集标签
 
-    path = "/train/"
+    path = "./train/"
+    # path = "D:/DeepLearning/录音"
     dirs = os.listdir(path)  # 获取的是目录列表
     for i in dirs:
         print("开始加载:", i)
@@ -32,7 +33,7 @@ def create_datasets():
         for j in files:
             try:
                 waveData = get_wav_mfcc(wavs_path + "/" + j)
-                if testNum < 100:
+                if testNum < 10:
                     testwavs.append(waveData)
                     testlabels.append(labsIndName.index(i))
                     testNum += 1
