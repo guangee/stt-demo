@@ -48,7 +48,11 @@ def video():
     result = model.predict(X[0:1])[0]  # 识别出第一张图的结果，多张图的时候，把后面的[0] 去掉，返回的就是多张图结果
     print("识别结果", result)
     #  因为在训练的时候，标签集的名字 为：  0：seven   1：stop    0 和 1 是下标
-    name = ["seven", "stop"]  # 创建一个跟训练时一样的标签集
+    name = []  # 创建一个跟训练时一样的标签集
+    path = "/train/"
+    dirs = os.listdir(path)  # 获取的是目录列表
+    for i in dirs:
+        name.append(i)
     ind = 0  # 结果中最大的一个数
     for i in range(len(result)):
         if result[i] > result[ind]:

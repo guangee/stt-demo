@@ -21,7 +21,7 @@ def create_datasets():
     testwavs = []  # 测试wav文件集
     testlabels = []  # 测试集标签
 
-    path = "/speech-demo/"
+    path = "/train/"
     dirs = os.listdir(path)  # 获取的是目录列表
     for i in dirs:
         print("开始加载:", i)
@@ -64,13 +64,11 @@ def get_wav_mfcc(wav_path):
     ### 对音频数据进行长度大小的切割，保证每一个的长度都是一样的【因为训练文件全部是1秒钟长度，16000帧的，所以这里需要把每个语音文件的长度处理成一样的】
     data = list(np.array(waveData[0]))
     # print(len(data))
-    while len(data) > 16000:
-        print(len(data))
-        print(data[0])
-        del data[len(waveData[0]) - 1]
+    while len(data) > 16000*6:
+        del data[len(data) - 1]
         del data[0]
     # print(len(data))
-    while len(data) < 16000:
+    while len(data) < 16000*6:
         data.append(0)
     # print(len(data))
 
@@ -100,10 +98,10 @@ if __name__ == '__main__':
     # 构建模型
     model = Sequential()
     # model.add(Dense(1024, activation='relu'))
-    model.add(Dense(512, activation='relu', input_shape=(16000,)))
+    model.add(Dense(512, activation='relu', input_shape=(16000*6,)))
     model.add(Dense(256, activation='relu'))
     model.add(Dense(64, activation='relu'))
-    model.add(Dense(2, activation='softmax'))
+    model.add(Dense(5, activation='softmax'))
     # [编译模型] 配置模型，损失函数采用交叉熵，优化采用Adadelta，将识别准确率作为模型评估
     model.compile(loss=keras.losses.categorical_crossentropy, optimizer=keras.optimizers.Adadelta(),
                   metrics=['accuracy'])
