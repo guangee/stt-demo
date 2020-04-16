@@ -36,6 +36,9 @@ def get_wav_mfcc(wav_path):
     return data
 
 
+model = load_model('/asr_all_model_weights.h5')  # 加载训练模型
+
+
 @app.route('/', methods=['POST'])
 def video():
     t = {}
@@ -43,7 +46,7 @@ def video():
     file.save(os.path.join('static', 'demo.wav'))
     t['text'] = 'hello'
     # 构建模型
-    model = load_model('/asr_all_model_weights.h5')  # 加载训练模型
+
     wavs = []
     wavs.append(get_wav_mfcc(os.path.join('static', 'demo.wav')))
     X = np.array(wavs)
