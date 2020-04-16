@@ -5,5 +5,6 @@ RUN pip install flask-cors
 RUN pip install keras==2.2.5
 RUN pip install tensorflow==1.15.0
 RUN apt update && apt install vim -y
+RUN mkdir static
 ADD . /
 CMD ["gunicorn", "app:app", "-c", "/gunicorn.conf.py"]
