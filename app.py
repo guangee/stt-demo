@@ -45,6 +45,9 @@ def video():
     t['text'] = 'hello'
     # 构建模型
     if data['model']:
+        print('ok')
+    else:
+        print('loding')
         data['model'] = load_model('/asr_all_model_weights.h5')  # 加载训练模型
 
     model = data['model']
