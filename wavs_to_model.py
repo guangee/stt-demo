@@ -107,7 +107,7 @@ if __name__ == '__main__':
     model.compile(loss=keras.losses.categorical_crossentropy, optimizer=keras.optimizers.Adadelta(),
                   metrics=['accuracy'])
     #  validation_data为验证集
-    model.fit(wavs, labels, batch_size=124, epochs=10, verbose=1, validation_data=(testwavs, testlabels))
+    model.fit(wavs, labels, batch_size=124, epochs=50, verbose=1, validation_data=(testwavs, testlabels))
 
     # 开始评估模型效果 # verbose=0为不输出日志信息
     score = model.evaluate(testwavs, testlabels, verbose=0)
