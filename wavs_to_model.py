@@ -21,7 +21,7 @@ def create_datasets():
     testwavs = []  # 测试wav文件集
     testlabels = []  # 测试集标签
 
-    path = "./train/"
+    path = "./train2/"
     # path = "D:/DeepLearning/录音"
     dirs = os.listdir(path)  # 获取的是目录列表
     for i in dirs:

@@ -59,7 +59,7 @@ def video():
     print("识别结果", result)
     #  因为在训练的时候，标签集的名字 为：  0：seven   1：stop    0 和 1 是下标
     name = []  # 创建一个跟训练时一样的标签集
-    path = "/train/"
+    path = "/train2/"
     dirs = os.listdir(path)  # 获取的是目录列表
     for i in dirs:
         name.append(i)
