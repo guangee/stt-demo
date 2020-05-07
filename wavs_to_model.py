@@ -102,7 +102,7 @@ if __name__ == '__main__':
     model.add(Dense(512, activation='relu', input_shape=(16000*6,)))
     model.add(Dense(256, activation='relu'))
     model.add(Dense(64, activation='relu'))
-    model.add(Dense(5, activation='softmax'))
+    model.add(Dense(7, activation='softmax'))
     # [编译模型] 配置模型，损失函数采用交叉熵，优化采用Adadelta，将识别准确率作为模型评估
     model.compile(loss=keras.losses.categorical_crossentropy, optimizer=keras.optimizers.Adadelta(),
                   metrics=['accuracy'])
