@@ -23,7 +23,7 @@ Keras-Preprocessing==1.1.0
 Markdown==3.2.1
 MarkupSafe==1.1.1
 mkl-service==2.3.0
-numpy==1.18.1
+numpy==1.22.0
 oauthlib==3.0.1
 opt-einsum==0+untagged.53.g6ab433b.dirty
 protobuf==3.11.4
