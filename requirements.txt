@@ -26,7 +26,7 @@ mkl-service==2.3.0
 numpy==1.18.1
 oauthlib==3.0.1
 opt-einsum==0+untagged.53.g6ab433b.dirty
-protobuf==3.11.4
+protobuf==3.18.3
 pyasn1==0.4.8
 pyasn1-modules==0.2.7
 pycparser==2.20
